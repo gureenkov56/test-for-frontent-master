@@ -13,15 +13,15 @@ function formSubmit() {
 
 <template>
   <form
-      v-show="true"
-      class="todo__form"
-      @submit.prevent="formSubmit($event)"
+    v-show="true"
+    class="todo__form"
+    @submit.prevent="formSubmit($event)"
   >
     <input
-        type="text"
-        class="form-control"
-        placeholder="Текст задания..."
-        v-model="inputValue"
+      v-model="inputValue"
+      type="text"
+      class="form-control"
+      placeholder="Текст задания..."
     >
   </form>
 </template>

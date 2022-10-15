@@ -14,9 +14,9 @@ const props = defineProps({
     </h2>
 
     <button
-        class="btn"
-        :class="{'btn--closed': props.isClosed}"
-        @click="emit('btnClick')"
+      class="btn"
+      :class="{'btn--closed': props.isClosed}"
+      @click="emit('btnClick')"
     >
       <PlusIcon />
     </button>

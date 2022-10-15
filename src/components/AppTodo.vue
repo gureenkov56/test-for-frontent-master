@@ -23,8 +23,9 @@ onMounted(() => {
 
 <template>
   <div class="todo">
-    <Head @btnClick="toggleForm"
-          :isClosed="isClosed"
+    <Head
+      :is-closed="isClosed"
+      @btn-click="toggleForm"
     />
     <!-- /.todo__head -->
 
@@ -32,7 +33,7 @@ onMounted(() => {
       <Form v-if="isClosed" />
     </Transition>
 
-    <p v-if="store.state.todos.length < 1" >
+    <p v-if="store.state.todos.length < 1">
       {{ store.state.status }}
     </p>
     <List :todos="store.state.todos" />

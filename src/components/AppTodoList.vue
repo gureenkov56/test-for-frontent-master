@@ -7,10 +7,10 @@ const props = defineProps({
 <template>
   <div class="todo__list">
     <div
-        v-for="todo in props.todos"
-        :key="todo.id"
-        class="todo__list-item"
-        :class="{'todo__list-item_completed': todo.completed}"
+      v-for="todo in props.todos"
+      :key="todo.id"
+      class="todo__list-item"
+      :class="{'todo__list-item_completed': todo.completed}"
     >
       <div class="todo__list-item-info">
         <h4 class="todo__list-item-info-title">
