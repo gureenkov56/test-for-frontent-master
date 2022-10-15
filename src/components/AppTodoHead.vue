@@ -1,8 +1,7 @@
 <script setup>
 import PlusIcon from './icons/PlusIcon';
-import { ref } from 'vue';
+const emit = defineEmits(['btnClick']);
 
-const isClosed = ref(false);
 </script>
 
 <template>
@@ -14,7 +13,7 @@ const isClosed = ref(false);
     <button
         class="btn"
         :class="{'btn--closed': isClosed}"
-        @click="isClosed = !isClosed"
+        @click="emit('btnClick')"
     >
       <PlusIcon />
     </button>
