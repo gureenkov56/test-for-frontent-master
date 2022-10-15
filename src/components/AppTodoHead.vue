@@ -1,6 +1,9 @@
 <script setup>
 import PlusIcon from './icons/PlusIcon';
 const emit = defineEmits(['btnClick']);
+const props = defineProps({
+  isClosed: Boolean
+});
 
 </script>
 
@@ -12,7 +15,7 @@ const emit = defineEmits(['btnClick']);
 
     <button
         class="btn"
-        :class="{'btn--closed': isClosed}"
+        :class="{'btn--closed': props.isClosed}"
         @click="emit('btnClick')"
     >
       <PlusIcon />

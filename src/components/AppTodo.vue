@@ -8,18 +8,24 @@ import { onMounted, ref } from 'vue';
 const store = useStore();
 const isClosed = ref(false);
 
-onMounted(() => {
-  store.dispatch('loadTodoApi');
-});
-
 function toggleForm() {
   isClosed.value = !isClosed.value;
 }
+
+onMounted(() => {
+  store.dispatch('loadTodoApi');
+
+  window.addEventListener('keyup', e => {
+    if (e.keyCode === 46) store.commit('REMOVE_COMPLETED_ITEM');
+  });
+});
 </script>
 
 <template>
   <div class="todo">
-    <Head @btnClick="toggleForm"/>
+    <Head @btnClick="toggleForm"
+          :isClosed="isClosed"
+    />
     <!-- /.todo__head -->
 
     <Transition>
