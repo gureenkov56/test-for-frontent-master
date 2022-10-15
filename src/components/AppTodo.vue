@@ -2,29 +2,14 @@
 import Head from './AppTodoHead.vue';
 import Form from './AppTodoForm.vue';
 import List from './AppTodoList.vue';
+import { useStore } from 'vuex';
+import { onMounted } from 'vue';
 
-const todos = [
-  {
-    id: 1,
-    title: 'repellendus sunt dolores architecto voluptatum',
-    completed: false
-  },
-  {
-    id: 4,
-    title: 'repellendus sunt dolores architecto voluptatum',
-    completed: true
-  },
-  {
-    id: 2,
-    title: 'repellendus sunt dolores architecto voluptatum',
-    completed: false
-  },
-  {
-    id: 3,
-    title: 'repellendus sunt dolores architecto voluptatum',
-    completed: true
-  }
-];
+const store = useStore();
+
+onMounted(() => {
+  store.dispatch('loadTodoApi');
+});
 </script>
 
 <template>
@@ -34,7 +19,10 @@ const todos = [
 
     <Form/>
 
-    <List :todos="todos" />
+    <p v-if="store.state.todos.length < 1" >
+      {{ store.state.status }}
+    </p>
+    <List :todos="store.state.todos" />
     <!-- /.todo__list -->
   </div>
 </template>
